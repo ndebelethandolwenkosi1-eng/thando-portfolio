@@ -1,0 +1,2613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charismatic Faith Tabernacle</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f7f7f7;
+    color:#222;
+}
+
+.screen{
+    display:none;
+    min-height:100vh;
+}
+
+.screen.active{
+    display:flex;
+}
+
+/* ================= SPLASH ================= */
+
+#splash{
+    min-height:100vh;
+    background:linear-gradient(135deg,#111,#3b2600,#111);
+    color:white;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+}
+
+.splash-content{
+    max-width:650px;
+    width:100%;
+}
+
+.logo{
+    width:180px;
+    height:180px;
+    object-fit:contain;
+    margin-bottom:20px;
+}
+
+.splash-content h1{
+    font-size:38px;
+    margin-bottom:12px;
+    letter-spacing:2px;
+}
+
+.splash-content p{
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.main-btn{
+    border:none;
+    padding:15px 35px;
+    border-radius:30px;
+    background:#d4af37;
+    color:#111;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.main-btn:hover{
+    transform:scale(1.03);
+}
+
+/* ================= LOGIN ================= */
+
+#login,
+#memberLogin,
+#founderLogin{
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#111,#4b3200,#111);
+    padding:20px;
+}
+
+.login-box{
+    background:white;
+    width:100%;
+    max-width:430px;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 35px rgba(0,0,0,.3);
+    text-align:center;
+}
+
+.login-box h2{
+    margin-bottom:10px;
+}
+
+.login-box p{
+    margin-bottom:20px;
+    color:#666;
+}
+
+.login-box input{
+    width:100%;
+    padding:14px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:16px;
+}
+
+.login-box button{
+    width:100%;
+    padding:14px;
+    margin-top:12px;
+    border:none;
+    border-radius:10px;
+    background:#d4af37;
+    color:#111;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.login-box button:hover{
+    opacity:.9;
+}
+
+.back-btn{
+    background:#333 !important;
+    color:white !important;
+}
+
+.role-btn{
+    margin-top:15px !important;
+    padding:18px !important;
+}
+
+.error{
+    color:#c00 !important;
+    font-weight:bold;
+    margin-top:12px;
+}
+
+/* ================= WEBSITE ================= */
+
+#website{
+    display:block;
+    min-height:100vh;
+}
+
+header{
+    background:#111;
+    color:white;
+    padding:15px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.header-left img{
+    width:55px;
+    height:55px;
+    object-fit:contain;
+}
+
+.header-left h2{
+    font-size:18px;
+}
+
+nav{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+nav button{
+    background:none;
+    border:none;
+    color:white;
+    padding:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+nav button:hover{
+    color:#d4af37;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:520px;
+    background:
+        linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.7)),
+        url("church-background.jpg") center/cover no-repeat;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.hero img{
+    width:150px;
+    height:150px;
+    object-fit:contain;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:44px;
+    margin-bottom:15px;
+}
+
+.hero h3{
+    color:#d4af37;
+    font-size:24px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:19px;
+    line-height:1.6;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:65px 20px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#666;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.card h3{
+    margin-bottom:12px;
+    color:#8a6500;
+}
+
+.card p{
+    line-height:1.6;
+}
+
+.gold{
+    color:#a07800;
+}
+
+.highlight{
+    background:#111;
+    color:white;
+}
+
+.highlight h2{
+    color:#d4af37;
+}
+
+/* ================= SERVICES ================= */
+
+.service-card{
+    text-align:center;
+}
+
+.service-card .day{
+    font-size:20px;
+    font-weight:bold;
+    color:#a07800;
+}
+
+.service-card .time{
+    font-size:25px;
+    margin-top:8px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+footer p{
+    margin:8px 0;
+}
+
+.socials a{
+    color:#d4af37;
+    margin:0 8px;
+    text-decoration:none;
+}
+
+/* ================= DASHBOARD ================= */
+
+#dashboard{
+    display:none;
+    min-height:100vh;
+    background:#f3f3f3;
+}
+
+.dashboard-header{
+    background:#111;
+    color:white;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.dashboard-header button{
+    background:#d4af37;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.dashboard-content{
+    max-width:1200px;
+    margin:auto;
+    padding:25px;
+}
+
+.dashboard-menu{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:12px;
+    margin-bottom:30px;
+}
+
+.dashboard-menu button{
+    border:none;
+    background:#222;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.dashboard-menu button:hover{
+    background:#8a6500;
+}
+
+.admin-panel{
+    display:none;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    margin-bottom:25px;
+}
+
+.admin-panel.active{
+    display:block;
+}
+
+.admin-panel h2{
+    margin-bottom:20px;
+}
+
+.admin-panel input,
+.admin-panel textarea,
+.admin-panel select{
+    width:100%;
+    padding:12px;
+    margin:7px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.admin-panel textarea{
+    min-height:100px;
+}
+
+.admin-panel button{
+    background:#d4af37;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-top:8px;
+}
+
+.admin-item{
+    border:1px solid #ddd;
+    padding:15px;
+    margin:12px 0;
+    border-radius:10px;
+}
+
+.delete-btn{
+    background:#b00020 !important;
+    color:white;
+}
+
+.approve-btn{
+    background:#16803c !important;
+    color:white;
+}
+
+.reject-btn{
+    background:#b00020 !important;
+    color:white;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:700px){
+
+    header{
+        flex-direction:column;
+    }
+
+    nav{
+        width:100%;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .hero h3{
+        font-size:20px;
+    }
+
+    .splash-content h1{
+        font-size:28px;
+    }
+
+    .dashboard-header{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     SPLASH SCREEN
+===================================================== -->
+
+<div id="splash" class="screen active">
+    <div class="splash-content">
+
+        <img src="logo.png"
+             class="logo"
+             alt="Charismatic Faith Tabernacle Logo">
+
+        <h1>CHARISMATIC FAITH TABERNACLE</h1>
+
+        <p>
+            Relax, the Word Works.
+        </p>
+
+        <button class="main-btn" onclick="showLogin()">
+            ENTER CHURCH WEBSITE
+        </button>
+
+    </div>
+</div>
+
+
+<!-- =====================================================
+     ROLE LOGIN
+===================================================== -->
+
+<div id="login" class="screen">
+
+    <div class="login-box">
+
+        <h2>Welcome</h2>
+
+        <p>
+            Who are you logging in as?
+        </p>
+
+        <button class="role-btn" onclick="showMemberLogin()">
+            👤 MEMBER
+        </button>
+
+        <button class="role-btn" onclick="showFounderLogin()">
+            👑 FOUNDER
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MEMBER LOGIN
+===================================================== -->
+
+<div id="memberLogin" class="screen">
+
+    <div class="login-box">
+
+        <h2>👤 Member Login</h2>
+
+        <p>
+            Welcome to Charismatic Faith Tabernacle
+        </p>
+
+        <input
+            type="text"
+            id="memberName"
+            placeholder="Enter your name"
+            autocomplete="name"
+        >
+
+        <input
+            type="password"
+            id="memberPassword"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+        >
+
+        <button onclick="memberLogin()">
+            LOGIN
+        </button>
+
+        <button class="back-btn" onclick="showLogin()">
+            ← BACK
+        </button>
+
+        <p id="memberError" class="error"></p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FOUNDER LOGIN
+===================================================== -->
+
+<div id="founderLogin" class="screen">
+
+    <div class="login-box">
+
+        <h2>👑 Founder Login</h2>
+
+        <p>
+            Founder Dashboard
+        </p>
+
+        <input
+            type="email"
+            id="founderEmail"
+            placeholder="Founder email"
+        >
+
+        <input
+            type="password"
+            id="founderPassword"
+            placeholder="Founder password"
+        >
+
+        <button onclick="founderLogin()">
+            LOGIN
+        </button>
+
+        <button class="back-btn" onclick="showLogin()">
+            ← BACK
+        </button>
+
+        <p id="founderError" class="error"></p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN CHURCH WEBSITE
+===================================================== -->
+
+<div id="website">
+
+<header>
+
+    <div class="header-left">
+
+        <img src="logo.png" alt="Church Logo">
+
+        <h2>CHARISMATIC FAITH TABERNACLE</h2>
+
+    </div>
+
+    <nav>
+
+        <button onclick="goTo('home')">Home</button>
+        <button onclick="goTo('about')">About</button>
+        <button onclick="goTo('services')">Services</button>
+        <button onclick="goTo('announcements')">Announcements</button>
+        <button onclick="goTo('events')">Events</button>
+        <button onclick="goTo('dailyWord')">Daily Word</button>
+        <button onclick="goTo('sermons')">Sermons</button>
+        <button onclick="goTo('youth')">Youth</button>
+        <button onclick="goTo('oneonone')">One-on-One</button>
+        <button onclick="goTo('location')">Location</button>
+
+    </nav>
+
+</header>
+
+
+<!-- HOME -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <img src="logo.png" alt="Church Logo">
+
+        <h1>CHARISMATIC FAITH TABERNACLE</h1>
+
+        <h3>Relax, the Word Works.</h3>
+
+        <p>
+            Welcome to Charismatic Faith Tabernacle,
+            a place where the Word of God is taught,
+            faith is strengthened and the Holy Spirit
+            moves at liberty.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>About Us</h2>
+
+            <p>Discover who we are</p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>Our Church</h3>
+
+                <p>
+                    Charismatic Faith Tabernacle was started
+                    on <strong>5 May 2021</strong>.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Founder</h3>
+
+                <p>
+                    Founded by
+                    <strong>Apostle Ezra Ezekiels</strong>.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Our Connection</h3>
+
+                <p>
+                    We are connected to
+                    <strong>Rhema World</strong>.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Statement of Faith</h3>
+
+                <p>
+                    The Bible is our all-sufficient ruler.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>What Charismatic Means</h3>
+
+                <p>
+                    Charismatic means the Holy Spirit
+                    moving at liberty.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Our Mission</h3>
+
+                <p>
+                    Charismatic is a mission that God gave
+                    to Apostle Ezra Ezekiels that will remain
+                    until Jesus comes.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services" class="highlight">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Our Services</h2>
+
+            <p>Come and worship with us.</p>
+
+        </div>
+
+        <div id="publicServices" class="cards"></div>
+
+    </div>
+
+</section>
+
+
+<!-- SHILO -->
+
+<section id="shilo">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Shilo Fasting</h2>
+
+        </div>
+
+        <div class="card" style="text-align:center">
+
+            <h3>🙏 Monthly Shilo Fasting</h3>
+
+            <p>
+                Shilo fasting takes place from the
+                <strong>1st to the 3rd of every month.</strong>
+            </p>
+
+            <p>
+                Join us as we seek God in prayer,
+                fasting and fellowship.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOLY COMMUNION -->
+
+<section id="communion" class="highlight">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Our Holy Ghost Sunday</h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>🍞 Holy Communion</h3>
+
+            <p>
+                Holy Communion is taken on the
+                <strong>first Sunday of every month.</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ANNOUNCEMENTS -->
+
+<section id="announcements">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Announcements</h2>
+
+        </div>
+
+        <div id="publicAnnouncements" class="cards"></div>
+
+    </div>
+
+</section>
+
+
+<!-- EVENTS -->
+
+<section id="events" class="highlight">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Church Events</h2>
+
+        </div>
+
+        <div id="publicEvents" class="cards"></div>
+
+    </div>
+
+</section>
+
+
+<!-- DAILY WORD -->
+
+<section id="dailyWord">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Daily Word</h2>
+
+            <p>Receive encouragement from the Word of God.</p>
+
+        </div>
+
+        <div id="publicDailyWord"></div>
+
+    </div>
+
+</section>
+
+
+<!-- YOUTH -->
+
+<section id="youth" class="highlight">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>🔥 Youth Ministry</h2>
+
+            <p>Youths on fire for God.</p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>🔥 Youths on Fire</h3>
+
+                <p>
+                    Raising young people who are passionate
+                    about Jesus Christ and the Word of God.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>✨ Year of Shining</h3>
+
+                <p>
+                    A year of growth, achievement,
+                    purpose and shining for Christ.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🚀 Breaking New Grounds</h3>
+
+                <p>
+                    We believe God is taking our youths
+                    to new levels and new opportunities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERMONS -->
+
+<section id="sermons">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>🎥 Sermons</h2>
+
+            <p>Watch and listen to the Word.</p>
+
+        </div>
+
+        <div id="publicSermons" class="cards"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ONE ON ONE -->
+
+<section id="oneonone" class="highlight">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>🙏 One-on-One</h2>
+
+            <p>
+                Request a private meeting with the church.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <input
+                type="text"
+                id="bookingName"
+                placeholder="Your name"
+                style="width:100%;padding:12px;margin:5px 0;"
+            >
+
+            <input
+                type="tel"
+                id="bookingPhone"
+                placeholder="Your phone number"
+                style="width:100%;padding:12px;margin:5px 0;"
+            >
+
+            <textarea
+                id="bookingReason"
+                placeholder="What would you like to discuss?"
+                style="width:100%;padding:12px;margin:5px 0;min-height:100px;"
+            ></textarea>
+
+            <button
+                class="main-btn"
+                onclick="submitBooking()"
+            >
+                REQUEST ONE-ON-ONE
+            </button>
+
+            <p id="bookingMessage"></p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LOCATION -->
+
+<section id="location">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>📍 Find Us</h2>
+
+        </div>
+
+        <div class="card" style="text-align:center">
+
+            <h3>Charismatic Faith Tabernacle</h3>
+
+            <p>
+                184 Albert Street<br>
+                Rosettenville<br>
+                Johannesburg<br>
+                South Africa
+            </p>
+
+            <br>
+
+            <a
+                href="https://www.google.com/maps/search/?api=1&query=184+Albert+Street+Rosettenville+Johannesburg+South+Africa"
+                target="_blank"
+                class="main-btn"
+                style="text-decoration:none;display:inline-block;"
+            >
+                OPEN GOOGLE MAPS
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="highlight">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>📞 Contact Us</h2>
+
+        </div>
+
+        <div class="card" style="text-align:center">
+
+            <h3>Church Contact</h3>
+
+            <p>
+                Phone:
+                <strong>+27 66 546 5614</strong>
+            </p>
+
+            <br>
+
+            <p>
+                Watch our live broadcasts on:
+            </p>
+
+            <br>
+
+            <div class="socials">
+
+                <a
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                >
+                    Facebook
+                </a>
+
+                <a
+                    href="https://www.youtube.com/"
+                    target="_blank"
+                >
+                    YouTube
+                </a>
+
+                <a
+                    href="https://www.tiktok.com/@ezraezekiels"
+                    target="_blank"
+                >
+                    TikTok @ezraezekiels
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>CHARISMATIC FAITH TABERNACLE</h3>
+
+    <p>Relax, the Word Works.</p>
+
+    <p>
+        184 Albert Street, Rosettenville,
+        Johannesburg, South Africa
+    </p>
+
+    <p>
+        +27 66 546 5614
+    </p>
+
+    <br>
+
+    <p>
+        © 2026 Charismatic Faith Tabernacle
+    </p>
+
+</footer>
+
+</div>
+
+
+<!-- =====================================================
+     FOUNDER DASHBOARD
+===================================================== -->
+
+<div id="dashboard">
+
+    <div class="dashboard-header">
+
+        <div>
+            <h2>👑 Founder Dashboard</h2>
+            <p>Charismatic Faith Tabernacle</p>
+        </div>
+
+        <button onclick="logout()">
+            LOGOUT
+        </button>
+
+    </div>
+
+
+    <div class="dashboard-content">
+
+        <div class="dashboard-menu">
+
+            <button onclick="openAdmin('adminAnnouncements')">
+                📢 Announcements
+            </button>
+
+            <button onclick="openAdmin('adminEvents')">
+                📅 Events
+            </button>
+
+            <button onclick="openAdmin('adminServices')">
+                ⛪ Services
+            </button>
+
+            <button onclick="openAdmin('adminDailyWord')">
+                📖 Daily Word
+            </button>
+
+            <button onclick="openAdmin('adminSermons')">
+                🎥 Sermons
+            </button>
+
+            <button onclick="openAdmin('adminBookings')">
+                🙏 One-on-One
+            </button>
+
+        </div>
+
+
+        <!-- ANNOUNCEMENTS ADMIN -->
+
+        <div id="adminAnnouncements" class="admin-panel active">
+
+            <h2>📢 Manage Announcements</h2>
+
+            <input
+                type="text"
+                id="announcementTitle"
+                placeholder="Announcement title"
+            >
+
+            <textarea
+                id="announcementText"
+                placeholder="Announcement details"
+            ></textarea>
+
+            <button onclick="addAnnouncement()">
+                ADD ANNOUNCEMENT
+            </button>
+
+            <div id="announcementList"></div>
+
+        </div>
+
+
+        <!-- EVENTS ADMIN -->
+
+        <div id="adminEvents" class="admin-panel">
+
+            <h2>📅 Manage Events</h2>
+
+            <input
+                type="text"
+                id="eventTitle"
+                placeholder="Event name"
+            >
+
+            <input
+                type="date"
+                id="eventDate"
+            >
+
+            <input
+                type="text"
+                id="eventTime"
+                placeholder="Event time"
+            >
+
+            <textarea
+                id="eventDescription"
+                placeholder="Event description"
+            ></textarea>
+
+            <button onclick="addEvent()">
+                ADD EVENT
+            </button>
+
+            <div id="eventList"></div>
+
+        </div>
+
+
+        <!-- SERVICES ADMIN -->
+
+        <div id="adminServices" class="admin-panel">
+
+            <h2>⛪ Update Services</h2>
+
+            <input
+                type="text"
+                id="serviceName"
+                placeholder="Service name"
+            >
+
+            <input
+                type="text"
+                id="serviceDay"
+                placeholder="Day"
+            >
+
+            <input
+                type="text"
+                id="serviceTime"
+                placeholder="Time"
+            >
+
+            <button onclick="addService()">
+                ADD SERVICE
+            </button>
+
+            <div id="serviceList"></div>
+
+        </div>
+
+
+        <!-- DAILY WORD ADMIN -->
+
+        <div id="adminDailyWord" class="admin-panel">
+
+            <h2>📖 Add Daily Word</h2>
+
+            <input
+                type="date"
+                id="wordDate"
+            >
+
+            <input
+                type="text"
+                id="wordTitle"
+                placeholder="Daily Word title"
+            >
+
+            <textarea
+                id="wordText"
+                placeholder="Write the Daily Word here..."
+            ></textarea>
+
+            <button onclick="addDailyWord()">
+                ADD DAILY WORD
+            </button>
+
+            <div id="dailyWordList"></div>
+
+        </div>
+
+
+        <!-- SERMONS ADMIN -->
+
+        <div id="adminSermons" class="admin-panel">
+
+            <h2>🎥 Manage Sermons</h2>
+
+            <input
+                type="text"
+                id="sermonTitle"
+                placeholder="Sermon title"
+            >
+
+            <input
+                type="text"
+                id="sermonPreacher"
+                placeholder="Preacher"
+            >
+
+            <input
+                type="url"
+                id="sermonLink"
+                placeholder="YouTube/video link"
+            >
+
+            <button onclick="addSermon()">
+                ADD SERMON
+            </button>
+
+            <div id="sermonList"></div>
+
+        </div>
+
+
+        <!-- BOOKINGS ADMIN -->
+
+        <div id="adminBookings" class="admin-panel">
+
+            <h2>🙏 One-on-One Bookings</h2>
+
+            <div id="bookingList"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   GENERAL NAVIGATION
+===================================================== */
+
+function hideAllScreens(){
+
+    document.querySelectorAll(".screen").forEach(function(screen){
+        screen.classList.remove("active");
+    });
+
+}
+
+function showLogin(){
+
+    hideAllScreens();
+
+    document.getElementById("login").classList.add("active");
+
+}
+
+function showMemberLogin(){
+
+    hideAllScreens();
+
+    document.getElementById("memberLogin").classList.add("active");
+
+    document.getElementById("memberError").innerHTML="";
+
+}
+
+function showFounderLogin(){
+
+    hideAllScreens();
+
+    document.getElementById("founderLogin").classList.add("active");
+
+    document.getElementById("founderError").innerHTML="";
+
+}
+
+
+/* =====================================================
+   MEMBER LOGIN
+===================================================== */
+
+function memberLogin(){
+
+    const name =
+        document.getElementById("memberName").value.trim();
+
+    const password =
+        document.getElementById("memberPassword").value.trim();
+
+    const error =
+        document.getElementById("memberError");
+
+    error.innerHTML="";
+
+    if(name === ""){
+
+        error.innerHTML="Please enter your name.";
+
+        return;
+
+    }
+
+    if(password === ""){
+
+        error.innerHTML="Please enter your password.";
+
+        return;
+
+    }
+
+    /*
+       Member login is currently a simple demo login.
+       Any name and non-empty password are accepted.
+    */
+
+    localStorage.setItem(
+        "memberName",
+        name
+    );
+
+    localStorage.setItem(
+        "memberLoggedIn",
+        "true"
+    );
+
+    showWebsite();
+
+}
+
+
+/* =====================================================
+   FOUNDER LOGIN
+===================================================== */
+
+function founderLogin(){
+
+    const email =
+        document.getElementById("founderEmail").value.trim();
+
+    const password =
+        document.getElementById("founderPassword").value;
+
+    const error =
+        document.getElementById("founderError");
+
+    error.innerHTML="";
+
+    const correctEmail =
+        "founder@charismaticfaith.org";
+
+    const correctPassword =
+        "Founder123!";
+
+    if(
+        email === correctEmail &&
+        password === correctPassword
+    ){
+
+        localStorage.setItem(
+            "founderLoggedIn",
+            "true"
+        );
+
+        showDashboard();
+
+    }else{
+
+        error.innerHTML =
+            "Incorrect founder email or password.";
+
+    }
+
+}
+
+
+/* =====================================================
+   SHOW WEBSITE
+===================================================== */
+
+function showWebsite(){
+
+    hideAllScreens();
+
+    document.getElementById("website").style.display="block";
+
+    document.getElementById("dashboard").style.display="none";
+
+    renderAll();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   SHOW DASHBOARD
+===================================================== */
+
+function showDashboard(){
+
+    hideAllScreens();
+
+    document.getElementById("website").style.display="none";
+
+    document.getElementById("dashboard").style.display="block";
+
+    renderAll();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logout(){
+
+    localStorage.removeItem("memberLoggedIn");
+    localStorage.removeItem("memberName");
+
+    localStorage.removeItem("founderLoggedIn");
+
+    document.getElementById("website").style.display="none";
+    document.getElementById("dashboard").style.display="none";
+
+    hideAllScreens();
+
+    document.getElementById("splash").classList.add("active");
+
+}
+
+
+/* =====================================================
+   WEBSITE NAVIGATION
+===================================================== */
+
+function goTo(id){
+
+    document.getElementById(id).scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   ADMIN NAVIGATION
+===================================================== */
+
+function openAdmin(id){
+
+    document.querySelectorAll(".admin-panel")
+    .forEach(function(panel){
+
+        panel.classList.remove("active");
+
+    });
+
+    document.getElementById(id).classList.add("active");
+
+}
+
+
+/* =====================================================
+   SAFE TEXT
+===================================================== */
+
+function escapeHTML(text){
+
+    return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   ANNOUNCEMENTS
+===================================================== */
+
+function getAnnouncements(){
+
+    return JSON.parse(
+        localStorage.getItem("cft_announcements") || "[]"
+    );
+
+}
+
+function saveAnnouncements(data){
+
+    localStorage.setItem(
+        "cft_announcements",
+        JSON.stringify(data)
+    );
+
+}
+
+function addAnnouncement(){
+
+    const title =
+        document.getElementById("announcementTitle").value.trim();
+
+    const text =
+        document.getElementById("announcementText").value.trim();
+
+    if(!title || !text){
+
+        alert("Please complete the announcement.");
+
+        return;
+
+    }
+
+    const announcements = getAnnouncements();
+
+    announcements.unshift({
+        id:Date.now(),
+        title:title,
+        text:text,
+        date:new Date().toLocaleDateString()
+    });
+
+    saveAnnouncements(announcements);
+
+    document.getElementById("announcementTitle").value="";
+    document.getElementById("announcementText").value="";
+
+    renderAnnouncements();
+
+}
+
+function deleteAnnouncement(id){
+
+    const data =
+        getAnnouncements().filter(item => item.id !== id);
+
+    saveAnnouncements(data);
+
+    renderAnnouncements();
+
+}
+
+function renderAnnouncements(){
+
+    const data=getAnnouncements();
+
+    const publicBox=
+        document.getElementById("publicAnnouncements");
+
+    const adminBox=
+        document.getElementById("announcementList");
+
+    if(data.length===0){
+
+        publicBox.innerHTML=
+            '<div class="card"><h3>No announcements yet</h3><p>Church announcements will appear here.</p></div>';
+
+        adminBox.innerHTML=
+            "<p>No announcements added yet.</p>";
+
+        return;
+
+    }
+
+    publicBox.innerHTML=data.map(item => `
+
+        <div class="card">
+
+            <h3>${escapeHTML(item.title)}</h3>
+
+            <p>${escapeHTML(item.text)}</p>
+
+            <br>
+
+            <small>${escapeHTML(item.date)}</small>
+
+        </div>
+
+    `).join("");
+
+    adminBox.innerHTML=data.map(item => `
+
+        <div class="admin-item">
+
+            <h3>${escapeHTML(item.title)}</h3>
+
+            <p>${escapeHTML(item.text)}</p>
+
+            <button
+                class="delete-btn"
+                onclick="deleteAnnouncement(${item.id})"
+            >
+                DELETE
+            </button>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+/* =====================================================
+   EVENTS
+===================================================== */
+
+function getEvents(){
+
+    return JSON.parse(
+        localStorage.getItem("cft_events") || "[]"
+    );
+
+}
+
+function saveEvents(data){
+
+    localStorage.setItem(
+        "cft_events",
+        JSON.stringify(data)
+    );
+
+}
+
+function addEvent(){
+
+    const title=
+        document.getElementById("eventTitle").value.trim();
+
+    const date=
+        document.getElementById("eventDate").value;
+
+    const time=
+        document.getElementById("eventTime").value.trim();
+
+    const description=
+        document.getElementById("eventDescription").value.trim();
+
+    if(!title || !date){
+
+        alert("Please enter the event name and date.");
+
+        return;
+
+    }
+
+    const data=getEvents();
+
+    data.unshift({
+        id:Date.now(),
+        title:title,
+        date:date,
+        time:time,
+        description:description
+    });
+
+    saveEvents(data);
+
+    document.getElementById("eventTitle").value="";
+    document.getElementById("eventDate").value="";
+    document.getElementById("eventTime").value="";
+    document.getElementById("eventDescription").value="";
+
+    renderEvents();
+
+}
+
+function deleteEvent(id){
+
+    saveEvents(
+        getEvents().filter(item => item.id !== id)
+    );
+
+    renderEvents();
+
+}
+
+function renderEvents(){
+
+    const data=getEvents();
+
+    const publicBox=
+        document.getElementById("publicEvents");
+
+    const adminBox=
+        document.getElementById("eventList");
+
+    if(data.length===0){
+
+        publicBox.innerHTML=
+            '<div class="card"><h3>No events yet</h3><p>Church events will appear here.</p></div>';
+
+        adminBox.innerHTML=
+            "<p>No events added yet.</p>";
+
+        return;
+
+    }
+
+    publicBox.innerHTML=data.map(item => `
+
+        <div class="card">
+
+            <h3>${escapeHTML(item.title)}</h3>
+
+            <p>
+                📅 ${escapeHTML(item.date)}
+            </p>
+
+            <p>
+                ⏰ ${escapeHTML(item.time || "Time to be announced")}
+            </p>
+
+            <br>
+
+            <p>${escapeHTML(item.description || "")}</p>
+
+        </div>
+
+    `).join("");
+
+    adminBox.innerHTML=data.map(item => `
+
+        <div class="admin-item">
+
+            <h3>${escapeHTML(item.title)}</h3>
+
+            <p>${escapeHTML(item.date)}</p>
+
+            <p>${escapeHTML(item.time || "")}</p>
+
+            <p>${escapeHTML(item.description || "")}</p>
+
+            <button
+                class="delete-btn"
+                onclick="deleteEvent(${item.id})"
+            >
+                DELETE
+            </button>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+/* =====================================================
+   SERVICES
+===================================================== */
+
+const defaultServices=[
+
+    {
+        id:1,
+        name:"Midweek Service",
+        day:"Wednesday",
+        time:"16:30"
+    },
+
+    {
+        id:2,
+        name:"Higher Life Service",
+        day:"Friday",
+        time:"16:30"
+    },
+
+    {
+        id:3,
+        name:"Sunday First Service",
+        day:"Sunday",
+        time:"08:30"
+    },
+
+    {
+        id:4,
+        name:"Sunday Second Service",
+        day:"Sunday",
+        time:"14:30"
+    }
+
+];
+
+function getServices(){
+
+    const saved=
+        localStorage.getItem("cft_services");
+
+    if(!saved){
+
+        saveServices(defaultServices);
+
+        return defaultServices;
+
+    }
+
+    return JSON.parse(saved);
+
+}
+
+function saveServices(data){
+
+    localStorage.setItem(
+        "cft_services",
+        JSON.stringify(data)
+    );
+
+}
+
+function addService(){
+
+    const name=
+        document.getElementById("serviceName").value.trim();
+
+    const day=
+        document.getElementById("serviceDay").value.trim();
+
+    const time=
+        document.getElementById("serviceTime").value.trim();
+
+    if(!name || !day || !time){
+
+        alert("Please complete all service details.");
+
+        return;
+
+    }
+
+    const data=getServices();
+
+    data.push({
+        id:Date.now(),
+        name:name,
+        day:day,
+        time:time
+    });
+
+    saveServices(data);
+
+    document.getElementById("serviceName").value="";
+    document.getElementById("serviceDay").value="";
+    document.getElementById("serviceTime").value="";
+
+    renderServices();
+
+}
+
+function deleteService(id){
+
+    saveServices(
+        getServices().filter(item => item.id !== id)
+    );
+
+    renderServices();
+
+}
+
+function renderServices(){
+
+    const data=getServices();
+
+    const publicBox=
+        document.getElementById("publicServices");
+
+    const adminBox=
+        document.getElementById("serviceList");
+
+    publicBox.innerHTML=data.map(item => `
+
+        <div class="card service-card">
+
+            <div class="day">
+                ${escapeHTML(item.day)}
+            </div>
+
+            <h3>
+                ${escapeHTML(item.name)}
+            </h3>
+
+            <div class="time">
+                ${escapeHTML(item.time)}
+            </div>
+
+        </div>
+
+    `).join("");
+
+    adminBox.innerHTML=data.map(item => `
+
+        <div class="admin-item">
+
+            <h3>${escapeHTML(item.name)}</h3>
+
+            <p>
+                ${escapeHTML(item.day)}
+                -
+                ${escapeHTML(item.time)}
+            </p>
+
+            <button
+                class="delete-btn"
+                onclick="deleteService(${item.id})"
+            >
+                DELETE
+            </button>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+/* =====================================================
+   DAILY WORD
+===================================================== */
+
+function getDailyWords(){
+
+    return JSON.parse(
+        localStorage.getItem("cft_daily_words") || "[]"
+    );
+
+}
+
+function saveDailyWords(data){
+
+    localStorage.setItem(
+        "cft_daily_words",
+        JSON.stringify(data)
+    );
+
+}
+
+function addDailyWord(){
+
+    const date=
+        document.getElementById("wordDate").value;
+
+    const title=
+        document.getElementById("wordTitle").value.trim();
+
+    const text=
+        document.getElementById("wordText").value.trim();
+
+    if(!title || !text){
+
+        alert("Please complete the Daily Word.");
+
+        return;
+
+    }
+
+    const data=getDailyWords();
+
+    data.unshift({
+        id:Date.now(),
+        date:date || new Date().toLocaleDateString(),
+        title:title,
+        text:text
+    });
+
+    saveDailyWords(data);
+
+    document.getElementById("wordDate").value="";
+    document.getElementById("wordTitle").value="";
+    document.getElementById("wordText").value="";
+
+    renderDailyWords();
+
+}
+
+function deleteDailyWord(id){
+
+    saveDailyWords(
+        getDailyWords().filter(item => item.id !== id)
+    );
+
+    renderDailyWords();
+
+}
+
+function renderDailyWords(){
+
+    const data=getDailyWords();
+
+    const publicBox=
+        document.getElementById("publicDailyWord");
+
+    const adminBox=
+        document.getElementById("dailyWordList");
+
+    if(data.length===0){
+
+        publicBox.innerHTML=`
+
+            <div class="card">
+
+                <h3>Daily Word</h3>
+
+                <p>
+                    The Daily Word will appear here.
+                </p>
+
+            </div>
+
+        `;
+
+        adminBox.innerHTML=
+            "<p>No Daily Words added yet.</p>";
+
+        return;
+
+    }
+
+    const latest=data[0];
+
+    publicBox.innerHTML=`
+
+        <div class="card">
+
+            <h3>${escapeHTML(latest.title)}</h3>
+
+            <p>
+                <strong>${escapeHTML(latest.date)}</strong>
+            </p>
+
+            <br>
+
+            <p>
+                ${escapeHTML(latest.text)}
+            </p>
+
+        </div>
+
+    `;
+
+    adminBox.innerHTML=data.map(item => `
+
+        <div class="admin-item">
+
+            <h3>${escapeHTML(item.title)}</h3>
+
+            <p>${escapeHTML(item.date)}</p>
+
+            <p>${escapeHTML(item.text)}</p>
+
+            <button
+                class="delete-btn"
+                onclick="deleteDailyWord(${item.id})"
+            >
+                DELETE
+            </button>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+/* =====================================================
+   SERMONS
+===================================================== */
+
+function getSermons(){
+
+    return JSON.parse(
+        localStorage.getItem("cft_sermons") || "[]"
+    );
+
+}
+
+function saveSermons(data){
+
+    localStorage.setItem(
+        "cft_sermons",
+        JSON.stringify(data)
+    );
+
+}
+
+function addSermon(){
+
+    const title=
+        document.getElementById("sermonTitle").value.trim();
+
+    const preacher=
+        document.getElementById("sermonPreacher").value.trim();
+
+    const link=
+        document.getElementById("sermonLink").value.trim();
+
+    if(!title){
+
+        alert("Please enter the sermon title.");
+
+        return;
+
+    }
+
+    const data=getSermons();
+
+    data.unshift({
+        id:Date.now(),
+        title:title,
+        preacher:preacher,
+        link:link
+    });
+
+    saveSermons(data);
+
+    document.getElementById("sermonTitle").value="";
+    document.getElementById("sermonPreacher").value="";
+    document.getElementById("sermonLink").value="";
+
+    renderSermons();
+
+}
+
+function deleteSermon(id){
+
+    saveSermons(
+        getSermons().filter(item => item.id !== id)
+    );
+
+    renderSermons();
+
+}
+
+function renderSermons(){
+
+    const data=getSermons();
+
+    const publicBox=
+        document.getElementById("publicSermons");
+
+    const adminBox=
+        document.getElementById("sermonList");
+
+    if(data.length===0){
+
+        publicBox.innerHTML=`
+
+            <div class="card">
+
+                <h3>No sermons yet</h3>
+
+                <p>
+                    Sermons will appear here.
+                </p>
+
+            </div>
+
+        `;
+
+        adminBox.innerHTML=
+            "<p>No sermons added yet.</p>";
+
+        return;
+
+    }
+
+    publicBox.innerHTML=data.map(item => `
+
+        <div class="card">
+
+            <h3>${escapeHTML(item.title)}</h3>
+
+            <p>
+                Preacher:
+                ${escapeHTML(item.preacher || "Church")}
+            </p>
+
+            ${
+                item.link
+                ?
+                `<br>
+                 <a
+                    href="${escapeHTML(item.link)}"
+                    target="_blank"
+                    class="main-btn"
+                    style="display:inline-block;text-decoration:none;"
+                 >
+                    WATCH SERMON
+                 </a>`
+                :
+                ""
+            }
+
+        </div>
+
+    `).join("");
+
+    adminBox.innerHTML=data.map(item => `
+
+        <div class="admin-item">
+
+            <h3>${escapeHTML(item.title)}</h3>
+
+            <p>
+                ${escapeHTML(item.preacher || "")}
+            </p>
+
+            <p>
+                ${escapeHTML(item.link || "No video link")}
+            </p>
+
+            <button
+                class="delete-btn"
+                onclick="deleteSermon(${item.id})"
+            >
+                DELETE
+            </button>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+/* =====================================================
+   ONE-ON-ONE BOOKINGS
+===================================================== */
+
+function getBookings(){
+
+    return JSON.parse(
+        localStorage.getItem("cft_bookings") || "[]"
+    );
+
+}
+
+function saveBookings(data){
+
+    localStorage.setItem(
+        "cft_bookings",
+        JSON.stringify(data)
+    );
+
+}
+
+function submitBooking(){
+
+    const name=
+        document.getElementById("bookingName").value.trim();
+
+    const phone=
+        document.getElementById("bookingPhone").value.trim();
+
+    const reason=
+        document.getElementById("bookingReason").value.trim();
+
+    const message=
+        document.getElementById("bookingMessage");
+
+    if(!name || !phone || !reason){
+
+        message.innerHTML=
+            "Please complete all the fields.";
+
+        message.style.color="red";
+
+        return;
+
+    }
+
+    const data=getBookings();
+
+    data.unshift({
+        id:Date.now(),
+        name:name,
+        phone:phone,
+        reason:reason,
+        status:"Pending",
+        date:new Date().toLocaleString()
+    });
+
+    saveBookings(data);
+
+    document.getElementById("bookingName").value="";
+    document.getElementById("bookingPhone").value="";
+    document.getElementById("bookingReason").value="";
+
+    message.innerHTML=
+        "🙏 Your One-on-One request has been submitted.";
+
+    message.style.color="green";
+
+    renderBookings();
+
+}
+
+function updateBooking(id,status){
+
+    const data=getBookings();
+
+    const booking=
+        data.find(item => item.id === id);
+
+    if(booking){
+
+        booking.status=status;
+
+    }
+
+    saveBookings(data);
+
+    renderBookings();
+
+}
+
+function deleteBooking(id){
+
+    saveBookings(
+        getBookings().filter(item => item.id !== id)
+    );
+
+    renderBookings();
+
+}
+
+function renderBookings(){
+
+    const box=
+        document.getElementById("bookingList");
+
+    const data=getBookings();
+
+    if(data.length===0){
+
+        box.innerHTML=
+            "<p>No One-on-One bookings yet.</p>";
+
+        return;
+
+    }
+
+    box.innerHTML=data.map(item => `
+
+        <div class="admin-item">
+
+            <h3>${escapeHTML(item.name)}</h3>
+
+            <p>
+                📞 ${escapeHTML(item.phone)}
+            </p>
+
+            <p>
+                ${escapeHTML(item.reason)}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                ${escapeHTML(item.status)}
+            </p>
+
+            <p>
+                <small>
+                    ${escapeHTML(item.date)}
+                </small>
+            </p>
+
+            <button
+                class="approve-btn"
+                onclick="updateBooking(${item.id},'Approved')"
+            >
+                APPROVE
+            </button>
+
+            <button
+                class="reject-btn"
+                onclick="updateBooking(${item.id},'Rejected')"
+            >
+                REJECT
+            </button>
+
+            <button
+                class="delete-btn"
+                onclick="deleteBooking(${item.id})"
+            >
+                DELETE
+            </button>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+/* =====================================================
+   RENDER EVERYTHING
+===================================================== */
+
+function renderAll(){
+
+    renderAnnouncements();
+    renderEvents();
+    renderServices();
+    renderDailyWords();
+    renderSermons();
+    renderBookings();
+
+}
+
+
+/* =====================================================
+   PAGE START
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        document.getElementById("website").style.display="none";
+
+        document.getElementById("dashboard").style.display="none";
+
+        renderAll();
+
+    }
+);
+
+</script>
+
+</body>
+</html>
